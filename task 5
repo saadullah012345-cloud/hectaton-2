@@ -1,0 +1,44 @@
+
+import java.util.Scanner;
+
+public class ArrayInsertion {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int[] arr = new int[6];
+
+        // Input 5 elements
+        System.out.println("Enter 5 numbers:");
+        for (int i = 0; i < 5; i++) {
+            arr[i] = input.nextInt();
+        }
+
+        // Input index and new number
+        System.out.print("Enter index for insertion (0-5): ");
+        int index = input.nextInt();
+
+        System.out.print("Enter the number to insert: ");
+        int number = input.nextInt();
+
+        // Validate index
+        if (index < 0 || index > 5) {
+            System.out.println("Invalid index!");
+        } else {
+            // Shift elements to the right
+            for (int i = 4; i >= index; i--) {
+                arr[i + 1] = arr[i];
+            }
+
+            // Insert the new number
+            arr[index] = number;
+
+            // Display updated array
+            System.out.println("Updated array:");
+            for (int i = 0; i < 6; i++) {
+                System.out.print(arr[i] + " ");
+            }
+        }
+
+        input.close();
+    }
+}
